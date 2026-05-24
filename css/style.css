@@ -145,10 +145,10 @@ body {
     font-size: 15px;
 }
 
-/* PHẦN I Layout Grid */
+/* PHẦN I Layout Grid - 3 cột (câu 1-4, 5-8, 9-12) */
 .part1-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
 }
 
@@ -275,6 +275,23 @@ button#submit-btn {
 }
 button#submit-btn:hover {
     background-color: #d35400;
+}
+button#reset-btn {
+    flex: 1;
+    padding: 15px;
+    font-size: 18px;
+    background-color: #1abc9c;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.2s;
+    display: none;
+}
+button#reset-btn:hover {
+    background-color: #16a085;
 }
 #result-board {
     display: none;

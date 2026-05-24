@@ -36,7 +36,7 @@ function initForm(examId) {
     for (let i = 1; i <= 12; i++) {
         p1Html += `
         <div class="q-wrapper">
-            <div class="q-row">
+            <div class="q-column">
                 <div class="q-num">Câu ${i}:</div>
                 <div class="options">`;
         for (let opt of optionsP1) {

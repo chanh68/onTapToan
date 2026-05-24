@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luyện Đề THPTQG</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>PHIẾU TRẢ LỜI TRẮC NGHIỆM</h1>
+            <p class="subtitle">Ôn tập môn Toán 2026</p>
+        </div>
+
+        <!-- Bộ chọn đề thi -->
+        <div class="exam-selector-zone">
+            <label for="exam-select">Chọn mã đề thi:</label>
+            <select id="exam-select" onchange="loadExamData()">
+                <option value="de42">Đề Số 42</option>
+                <option value="de43">Đề Số 43</option>
+            </select>
+            <p class="exam-title-display" id="exam-title-text">Đang tải cấu trúc đề...</p>
+        </div>
+
+        <form id="exam-form">
+            <div
+                style="margin-bottom: 20px; background: #e8f8f5; padding: 15px; border-radius: 6px; border-left: 4px solid #1abc9c;">
+                <label for="student-name" style="font-weight: bold; font-size: 16px;">Họ và tên học sinh:</label>
+                <input type="text" id="student-name" placeholder="Nhập đầy đủ họ tên..."
+                    style="padding: 8px; font-size: 16px; width: 250px; border: 1px solid #ccc; border-radius: 4px; margin-left: 10px;">
+            </div>
+            <!-- PHẦN I -->
+            <div class="section-title">PHẦN I. TRẮC NGHIỆM NHIỀU PHƯƠNG ÁN LỰA CHỌN (12 Câu)</div>
+            <div class="instruction-text">Mỗi câu trả lời đúng học sinh được 0.25 điểm.</div>
+            <div class="part1-grid" id="p1-content"></div>
+
+            <!-- PHẦN II -->
+            <div class="section-title">PHẦN II. TRẮC NGHIỆM ĐÚNG SAI (4 Câu)</div>
+            <div class="instruction-text">Mỗi câu gồm 4 ý. Đúng 1 ý được 0.1đ | Đúng 2 ý được 0.25đ | Đúng 3 ý được 0.5đ
+                | Đúng 4 ý được 1.0đ.</div>
+            <div class="part2-grid" id="p2-content"></div>
+
+            <!-- PHẦN III -->
+            <div class="section-title">PHẦN III. TRẮC NGHIỆM TRẢ LỜI NGẮN (6 Câu)</div>
+            <div class="instruction-text">Mỗi câu trả lời đúng học sinh được 0.5 điểm.</div>
+            <div class="part3-grid" id="p3-content"></div>
+
+            <div class="action-zone">
+                <button type="button" id="submit-btn" onclick="calculateScore()">NỘP BÀI & CHẤM ĐIỂM</button>
+                <button type="button" id="reset-btn" onclick="resetForm()"
+                    style="display:none; background-color: #7f8c8d;">LÀM LẠI BÀI MỚI</button>
+            </div>
+        </form>
+
+        <!-- BẢNG ĐIỂM KẾT QUẢ -->
+        <div id="result-board">
+            <h2>KẾT QUẢ BÀI LÀM CHI TIẾT</h2>
+            <div class="score-summary-grid">
+                <div class="score-card">
+                    <span class="card-label">Phần I</span>
+                    <span class="card-val" id="score-p1">0.00</span>
+                </div>
+                <div class="score-card">
+                    <span class="card-label">Phần II</span>
+                    <span class="card-val" id="score-p2">0.00</span>
+                </div>
+                <div class="score-card">
+                    <span class="card-label">Phần III</span>
+                    <span class="card-val" id="score-p3">0.00</span>
+                </div>
+            </div>
+            <div class="total-score-box">
+                TỔNG ĐIỂM: <span id="score-total">0.00</span> / 10
+            </div>
+            <p style="color: #555; margin-top: 10px;">Bấm nút <strong>"Xem lời giải"</strong> ở từng câu dưới đây để
+                kiểm tra đáp án chi tiết</p>
+        </div>
+    </div>
+
+    <!-- Khởi tạo đối tượng lưu trữ đáp án toàn cục -->
+    <script>
+        const examAnswers = {};
+    </script>
+
+    <!-- Nạp script xử lý hệ thống -->
+    <script src="js/app.js"></script>
+</body>
+
+</html>

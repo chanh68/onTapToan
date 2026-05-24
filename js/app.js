@@ -282,5 +282,39 @@ function renderExplanationBox(id, correctHeader, textExp, imgPath, videoPath) {
 // Hàm đặt lại trạng thái làm mới form
 function resetForm() {
     const selectedExam = document.getElementById("exam-select").value;
+    
+    // Reset tất cả input fields
+    const allInputs = document.querySelectorAll('input[type="radio"], input[type="text"]');
+    allInputs.forEach(input => {
+        input.checked = false;
+        input.value = '';
+        input.disabled = false;
+        input.classList.remove('input-correct', 'input-wrong');
+    });
+    
+    // Reset tất cả bubble styles
+    const allBubbles = document.querySelectorAll('.bubble');
+    allBubbles.forEach(bubble => {
+        bubble.classList.remove('correct-ans', 'wrong-ans');
+    });
+    
+    // Reset tất cả explanation boxes
+    const allExpBoxes = document.querySelectorAll('.explanation-box');
+    allExpBoxes.forEach(box => box.style.display = 'none');
+    
+    const allToggleBtns = document.querySelectorAll('.explanation-toggle-btn');
+    allToggleBtns.forEach(btn => {
+        btn.style.display = 'none';
+        btn.innerText = 'Xem lời giải';
+    });
+    
+    // Reset kết quả
+    document.getElementById("result-board").style.display = "none";
+    document.getElementById("submit-btn").style.display = "block";
+    document.getElementById("submit-btn").disabled = false;
+    document.getElementById("submit-btn").innerText = "NỘP BÀI & CHẤM ĐIỂM";
+    document.getElementById("reset-btn").style.display = "none";
+    
+    // Reload form structure
     initForm(selectedExam);
 }

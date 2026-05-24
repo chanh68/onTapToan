@@ -147,9 +147,24 @@ body {
 
 /* PHẦN I Layout Grid - 3 cột (câu 1-4, 5-8, 9-12) */
 .part1-grid {
+    width: 100%;
+}
+
+.part1-columns {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 20px;
+    width: 100%;
+}
+
+.part1-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: 1px solid #e8e8e8;
+    padding: 15px;
+    border-radius: 6px;
+    background-color: #fafafa;
 }
 
 /* PHẦN II Layout */

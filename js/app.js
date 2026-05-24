@@ -30,29 +30,42 @@ function initForm(examId) {
     document.getElementById("submit-btn").style.display = "block";
     document.getElementById("reset-btn").style.display = "none";
 
-    // 1. Dựng Phần I (12 câu trắc nghiệm đơn)
-    let p1Html = '';
+    // 1. Dựng Phần I (12 câu trắc nghiệm đơn) - 3 cột
+    let p1Html = '<div class="part1-columns">';
     const optionsP1 = ['A', 'B', 'C', 'D'];
-    for (let i = 1; i <= 12; i++) {
-        p1Html += `
-        <div class="q-wrapper">
-            <div class="q-column">
-                <div class="q-num">Câu ${i}:</div>
-                <div class="options">`;
-        for (let opt of optionsP1) {
+    
+    // 3 cột: cột 1 (câu 1-4), cột 2 (câu 5-8), cột 3 (câu 9-12)
+    const columns = [
+        { start: 1, end: 4 },
+        { start: 5, end: 8 },
+        { start: 9, end: 12 }
+    ];
+    
+    for (let col of columns) {
+        p1Html += '<div class="part1-column">';
+        for (let i = col.start; i <= col.end; i++) {
             p1Html += `
-                    <label class="bubble-container">
-                        <input type="radio" name="p1_q${i}" value="${opt}">
-                        <span class="bubble" id="p1_q${i}_${opt}">${opt}</span>
-                    </label>`;
-        }
-        p1Html += `
+            <div class="q-wrapper">
+                <div class="q-column">
+                    <div class="q-num">Câu ${i}:</div>
+                    <div class="options">`;
+            for (let opt of optionsP1) {
+                p1Html += `
+                        <label class="bubble-container">
+                            <input type="radio" name="p1_q${i}" value="${opt}">
+                            <span class="bubble" id="p1_q${i}_${opt}">${opt}</span>
+                        </label>`;
+            }
+            p1Html += `
+                    </div>
                 </div>
-            </div>
-            <button type="button" class="explanation-toggle-btn" id="btn_exp_p1_q${i}" onclick="toggleExplanation('p1_q${i}')">Xem lời giải</button>
-            <div class="explanation-box" id="box_exp_p1_q${i}"></div>
-        </div>`;
+                <button type="button" class="explanation-toggle-btn" id="btn_exp_p1_q${i}" onclick="toggleExplanation('p1_q${i}')">Xem lời giải</button>
+                <div class="explanation-box" id="box_exp_p1_q${i}"></div>
+            </div>`;
+        }
+        p1Html += '</div>';
     }
+    p1Html += '</div>';
     document.getElementById("p1-content").innerHTML = p1Html;
 
     // 2. Dựng Phần II (4 câu Đúng/Sai, mỗi câu 4 ý a,b,c,d)

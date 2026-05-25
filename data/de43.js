@@ -21,9 +21,9 @@ examAnswers["de43"] = {
         { "id": 4, "ans": ["Đ", "S", "Đ", "Đ"], "exp": "", "image": "", "video": "" }
     ],
     "part3": [
-        { "id": 1, "ans": "15", "exp": "", "image": "", "video": "" },
-        { "id": 2, "ans": "224", "exp": "", "image": "", "video": "" },
-        { "id": 3, "ans": "41", "exp": "", "image": "", "video": "" },
+        { "id": 1, "ans": "15", "exp": "", "image": "images\\de43\\TLN_Cau1.png", "video": "" },
+        { "id": 2, "ans": "224", "exp": "", "image": "images\\de43\\TLN_Cau2.png", "video": "" },
+        { "id": 3, "ans": "41", "exp": "", "image": "images\\de43\\TLN_Cau3.png", "video": "" },
         { "id": 4, "ans": "4", "exp": "", "image": "", "video": "" },
         { "id": 5, "ans": "419", "exp": "", "image": "", "video": "" },
         { "id": 6, "ans": "2", "exp": "", "image": "", "video": "" }

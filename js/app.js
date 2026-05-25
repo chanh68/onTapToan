@@ -137,7 +137,7 @@ function calculateScore() {
 
     const studentName = document.getElementById("student-name").value.trim();
     if (studentName === "") {
-        alert("Em vui lòng nhập Họ và Tên trước khi nộp bài nhé!");
+        alert("Điền tên trước khi nộp bài nha mấy đứa!");
         return;
     }
 
